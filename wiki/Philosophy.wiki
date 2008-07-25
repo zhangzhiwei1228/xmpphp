@@ -19,7 +19,7 @@ XMLStream::addIdHandler($id, $pointer, $obj=null) is similar, but matches on the
 
 In the future, handlers will broken out into classes, and you will be able to have different types of matching and pointer behaviors.  For now, we have these basic two, which serve the basic features of XMPPHP well enough.
 
-On a match, the pointer is called with the XML that matched.  The function may then interpret the XML and do whatever it needs to with it, including sending replies.  You may also want to spawn an XMLStream event.  Events are created with a name and an array payload.  If there is a handler set for that name, then it will be called.  Events can also interrupt stream processing, which I'll get to in a bit.  The event array is specific for each event.  For example, in XMPPHP the "message" event contains a to, from, body, subject, etc.
+On a match, the pointer is called with the XML that matched.  The function may then interpret the XML and do whatever it needs to with it, including sending replies.  You may also want to spawn an XMLStream event.  Events are created with a name and an array payload.  If there is a handler set for that name, then it will be called.  Events can also interrupt stream processing, which I'll get to in a bit.  The event array is specific for each event.  For example, in XMPPHP the "message" event contains a to, from, body, subject, etc.  XMLStream::addEventHandler($name, $pointer) will register an event handler function, and XMLStream::event($name, $payload) will cause an event.
 
 ==Stream Processing==
 
